@@ -5,4 +5,5 @@ create_user_{{ user.username }}
   user.present:
     - name: {{ user.username }}
     - uid: {{ user.uid }}
+    - hash_password: False
 {% endfor %}}
