@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Web Server Test Page</title>
+    <title>Event Driven Test Page</title>
 </head>
 <body>
     <h1>Web Server Test Page</h1>
