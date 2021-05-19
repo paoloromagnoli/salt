@@ -5,5 +5,13 @@ create_user_{{ user.username }}
   user.present:
     - name: {{ user.username }}
     - uid: {{ user.uid }}
-    - hash_password: False
+    - password: {{ user.password }}
+    - groups:
+      - wheels
+
+add_user_to_sudoers:
+  file.append:
+        - name: /etc/sudoers
+        - text:
+          - "{{ user.username }}  ALL=(ALL) NOPASSWD: ALL"
 {% endfor %}}
