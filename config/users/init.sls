@@ -1,4 +1,4 @@
-{% from 'users/map.jinja' import users with context %}
+{% from 'config/users/map.jinja' import users with context %}
 
 {% for user in users %}
 create_user_{{ user.username }}
