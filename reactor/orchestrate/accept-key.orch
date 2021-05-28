@@ -1,6 +1,6 @@
 # used in /reactor/master/reactor.conf to accept keys
 
-{% if 'act' in data and data['act'] == 'pend' and data['id'].startswith('salt-') %}
+{% if 'act' in data and data['act'] == 'pend' %}
 minion_add:
   wheel.key.accept:
     - match: {{ data['id'] }}
