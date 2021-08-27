@@ -8,4 +8,4 @@ delete_user_{{ user.username }}:
     - name: {{ user.username }}
     - remove: true
     - force: true
-{% endfor %}}
+{% endfor %}

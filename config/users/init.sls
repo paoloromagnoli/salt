@@ -14,4 +14,4 @@ add_user_{{ user.username }}:
 #    - name: /etc/sudoers
 #    - text:
 #      - "{{ user.username }}  ALL=(ALL) NOPASSWD: ALL"
-{% endfor %}}
+{% endfor %}
