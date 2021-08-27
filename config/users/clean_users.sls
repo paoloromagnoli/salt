@@ -3,7 +3,7 @@
 {% from 'config/users/map.jinja' import users with context %}
 
 {% for user in users %}
-delete_user_{{ user.username }}
+delete_user_{{ user.username }}:
   user.delete:
     - name: {{ user.username }}
     - remove: true
