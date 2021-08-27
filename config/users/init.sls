@@ -7,7 +7,7 @@ add_user_{{ user.username }}:
     - uid: {{ user.uid }}
     - password: {{ user.password }}
     - groups:
-      - wheels
+      - wheel
 
 #add_user_{{ user.username }}_to_sudoers:
 #  file.append:
