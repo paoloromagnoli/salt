@@ -9,9 +9,9 @@ create_user_{{ user.username }}
     - groups:
       - wheels
 
-add_user_to_sudoers:
-  file.append:
-    - name: /etc/sudoers
-    - text:
-      - "{{ user.username }}  ALL=(ALL) NOPASSWD: ALL"
+#add_user_to_sudoers:
+#  file.append:
+#    - name: /etc/sudoers
+#    - text:
+#      - "{{ user.username }}  ALL=(ALL) NOPASSWD: ALL"
 {% endfor %}}
