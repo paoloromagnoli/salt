@@ -4,8 +4,8 @@
 
 {% for user in users %}
 delete_user_{{ user.username }}:
-  user.delete:
+  user.absent:
     - name: {{ user.username }}
-    - remove: true
+    - purge: true
     - force: true
 {% endfor %}
