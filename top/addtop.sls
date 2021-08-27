@@ -1,12 +1,12 @@
-# Copy the top.sls on the master file_roots (usually /srv/salt)
+# Copy the reactor.conf on the master
 
-copy_top:
+copy_reactor:
   file.managed:
-    - name: /srv/salt/top.sls
-    - source: salt://top/top.sls
+    - name: /etc/salt/master.d/reactor.conf
+    - source: salt://reactor/master/reactor.conf
 
 restart_master:
   service.running:
     - name: salt-master
     - watch:
-      - copy_top
+      - copy_reactor
