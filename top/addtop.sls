@@ -2,8 +2,8 @@
 
 copy_reactor:
   file.managed:
-    - name: /etc/salt/master.d/reactor.conf
-    - source: salt://reactor/master/reactor.conf
+    - name: /srv/salt/top.sls
+    - source: salt://top/top.sls
 
 restart_master:
   service.running:
