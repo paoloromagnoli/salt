@@ -9,7 +9,7 @@ create_user_{{ user.username }}
     - groups:
       - wheels
 
-#add_user_to_sudoers:
+#add_user_{{ user.username }}_to_sudoers:
 #  file.append:
 #    - name: /etc/sudoers
 #    - text:
