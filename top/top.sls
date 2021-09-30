@@ -1,15 +1,15 @@
 base:
   '*':
     - /config/users
-  'os:CentOS and application:apache':
-    - match: grain
+  'G@os:CentOS and G@application:apache':
+    - match: compound
     - /applications/apache
-  'os:CentOS and application:nginx':
-    - match: grain
+  'G@os:CentOS and G@application:nginx':
+    - match: compound
     - /applications/nginx
-  'os:CentOS and application:mysql':
-    - match: grain
+  'G@os:CentOS and G@application:mysql':
+    - match: compound
     - /applications/mysql
-  'os:CentOS and application:mongodb':
-    - match: grain
+  'G@os:CentOS and G@application:mongodb':
+    - match: compound
     - /applications/mongodb
