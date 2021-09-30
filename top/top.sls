@@ -1,6 +1,5 @@
 base:
-  'kernel:Linux':
-    - match: grain
+  '*':
     - /config/users
   'os:CentOS and application:apache':
     - match: grain
