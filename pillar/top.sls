@@ -1,10 +1,10 @@
 base:
   'os:CentOS':
     - match: grain
-    - /pillar/centosdefaults
+    - centosdefaults
   'os:Ubuntu':
     - match: grain
-    - /pillar/ubuntudefaults
+    - ubuntudefaults
   'os:Windows':
     - match: grain
-    - /pillar/windowsdefaults
+    - windowsdefaults
