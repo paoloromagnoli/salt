@@ -9,7 +9,7 @@ ensure_security_rule:
     - rule_id: vCenter_Inbound_Rule_2                   
     - verify_ssl: False                                 
     - cert: /path/to/client/certificate                 
-    - source_group: foo                                 
+    - source_groups: foo                                 
     - destination_groups: foo                           
     - services: foo                                     
     - scope: foo                                        
