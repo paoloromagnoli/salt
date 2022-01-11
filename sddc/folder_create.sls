@@ -1,6 +1,6 @@
 create_folder:
-  folder.manage:
+  module.run:
+    - name: folder.create
     - name: sddc_extensions
-    - task: create
     - dc_name: 'Region A'
     - type: vm
