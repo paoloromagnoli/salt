@@ -28,7 +28,7 @@ add_keyring_gpg_file:
     - name: /usr/share/keyrings/docker-archive-keyring.gpg
     - source: https://download.docker.com/linux/ubuntu/gpg
     - source_hash: 1500c1f56fa9e26b9b8f42452a553675796ade0807cdce11975eb98170b3a570
-    - mode: 
+    - mode: 644
 
 install_docker_repo:
   pkgrepo.managed:
