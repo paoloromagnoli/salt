@@ -33,5 +33,4 @@ install_docker_repo:
   pkgrepo.managed:
     - humanname: Docker Stable Repository
     - name: deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu bionic stable
-    - dist: stable
     - file: /etc/apt/sources.list.d/docker.list
