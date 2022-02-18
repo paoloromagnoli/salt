@@ -35,3 +35,10 @@ install_docker_repo:
     - humanname: Docker Stable Repository
     - name: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
     - file: /etc/apt/sources.list.d/docker.list
+
+install_docker:
+  pkg.installed:
+    - pkgs:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
