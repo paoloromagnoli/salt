@@ -28,9 +28,10 @@ add_keyring_gpg_file:
     - name: /usr/share/keyrings/docker-archive-keyring.gpg
     - source: https://download.docker.com/linux/ubuntu/gpg
     - source_hash: 1500c1f56fa9e26b9b8f42452a553675796ade0807cdce11975eb98170b3a570
+    - mode: 
 
 install_docker_repo:
   pkgrepo.managed:
     - humanname: Docker Stable Repository
-    - name: deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu bionic stable
+    - name: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
     - file: /etc/apt/sources.list.d/docker.list
