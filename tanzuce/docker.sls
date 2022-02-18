@@ -23,6 +23,11 @@ install_pre_reques_packages:
       - gnupg
       - lsb-release
 
+add_keyring_gpg_file:
+  file.managed:
+    - name: /usr/share/keyrings/docker-archive-keyring.gpg
+    - source: https://download.docker.com/linux/ubuntu/gpg
+
 install_docker_repo:
   pkgrepo.managed:
     - humanname: Docker Stable Repository
