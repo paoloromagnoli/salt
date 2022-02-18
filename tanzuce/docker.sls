@@ -30,6 +30,8 @@ add_keyring_gpg_file:
     - source_hash: 1500c1f56fa9e26b9b8f42452a553675796ade0807cdce11975eb98170b3a570
     - mode: 644
 
+# make arch and release parametric
+#echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 install_docker_repo:
   pkgrepo.managed:
     - humanname: Docker Stable Repository
@@ -42,3 +44,10 @@ install_docker:
       - docker-ce
       - docker-ce-cli
       - containerd.io
+
+# make user parametric
+create_docker_group:
+  group.present:
+    - name: docker
+    - addusers:
+      - seiberia
