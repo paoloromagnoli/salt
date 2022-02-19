@@ -1,4 +1,4 @@
-# install docker on Ubuntu
+# install docker on Ubuntu 18.04 bionic
 # https://docs.docker.com/engine/install/ubuntu/
 
 # pre requisites
@@ -37,7 +37,7 @@ add_keyring_gpg_file:
 install_docker_repo:
   pkgrepo.managed:
     - humanname: Docker Stable Repository
-    - name: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+    - name: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ grains['oscodename'] }} stable
     - file: /etc/apt/sources.list.d/docker.list
     - requires:
       - add_keyring_gpg_file
