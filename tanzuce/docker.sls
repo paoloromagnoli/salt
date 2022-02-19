@@ -14,7 +14,7 @@ uninstall_old_versions:
       - containerd 
       - runc
 
-# set up the Docker repository
+# install packages required to manage the apt repository
 install_required_packages:
   pkg.installed:
     - pkgs:
@@ -23,6 +23,7 @@ install_required_packages:
       - gnupg
       - lsb-release
 
+# download the gpg keyfile
 add_keyring_gpg_file:
   file.managed:
     - name: /usr/share/keyrings/docker-archive-keyring.gpg
@@ -32,7 +33,8 @@ add_keyring_gpg_file:
     - requires:
       - install_required_packages
 
-# make arch parametric?
+# set up the Docker repository
+# make arch parametric ?
 #echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 install_docker_repo:
   pkgrepo.managed:
