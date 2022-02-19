@@ -13,7 +13,7 @@ download_tce:
   file.managed:
     - name: /tmp/tce/tce-linux-amd64-v0.10.0.tar.gz
     - source: https://github.com/vmware-tanzu/community-edition/releases/download/v0.10.0/tce-linux-amd64-v0.10.0.tar.gz
-    - source_hash: ff834d1e179c3727d9cd3d0c8dad763b0710241f1b64539a200fbac68aebff3e
+    - source_hash: 7b246bb22f2fabd1cd2ea07ce533f10a5c5955670827e734d8c549595d106e6f
     - mode: 644
     - requires:
       - create_directory
