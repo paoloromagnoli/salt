@@ -4,6 +4,10 @@
 # pre requisites
 #   - python-apt package is required to be installed. To check if this package is installed, run dpkg -l python-apt. python-apt will need to be manually installed if it is not present.
 
+# known limitation
+# this state doesn't perform any check on cgroup so you should do it manually as mentioned in the doc below
+# https://tanzucommunityedition.io/docs/latest/support-matrix/#check-and-set-the-cgroup
+
 # uninstall old versions
 uninstall_old_versions:
   pkg.removed:
