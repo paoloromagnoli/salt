@@ -35,7 +35,6 @@ extract_tce:
 run_tce_installer:
   cmd.run:
     - name: /tmp/tce/tce-linux-amd64-v0.10.0/install.sh
-    - runas: seiberia
     - env:
       - ALLOW_INSTALL_AS_ROOT: 'true'
     - requires: 
