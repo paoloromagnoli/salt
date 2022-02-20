@@ -1,5 +1,9 @@
 # install Tanzu Community Edition on Ubuntu 18.04 bionic
 
+include:
+  - docker
+  - kubectl
+
 # create a directory to download the TCE release tar
 create_directory:
   file.directory:
@@ -32,5 +36,7 @@ run_tce_installer:
   cmd.run:
     - name: /tmp/tce/tce-linux-amd64-v0.10.0/install.sh
     - runas: seiberia
+    - env:
+      - ALLOW_INSTALL_AS_ROOT: 'true'
     - requires: 
       - extract_tce
