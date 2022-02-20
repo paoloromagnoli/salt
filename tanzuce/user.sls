@@ -6,7 +6,6 @@ create_tce_user:
     - name: tce
     - home: /home/tce
     - empty_password: True
-    - usergroup: True
     - groups:
       - sudo
 
