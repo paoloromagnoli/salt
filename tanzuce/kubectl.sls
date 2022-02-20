@@ -12,7 +12,7 @@ install_prerequisites:
 
 # download the Google Cloud public signing key
 # sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-add_keyring_gpg_file:
+add_k8s_keyring_gpg_file:
   file.managed:
     - name: /usr/share/keyrings/kubernetes-archive-keyring.gpg
     - source: https://packages.cloud.google.com/apt/doc/apt-key.gpg
@@ -29,7 +29,7 @@ install_k8s_repo:
     - name: deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main
     - file: /etc/apt/sources.list.d/kubernetes.list
     - requires:
-      - add_keyring_gpg_file
+      - add_k8s_keyring_gpg_file
 
 # install kubectl
 # https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management

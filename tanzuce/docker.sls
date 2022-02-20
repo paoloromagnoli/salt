@@ -28,7 +28,7 @@ install_required_packages:
       - lsb-release
 
 # download the gpg keyfile
-add_keyring_gpg_file:
+add_docker_keyring_gpg_file:
   file.managed:
     - name: /usr/share/keyrings/docker-archive-keyring.gpg
     - source: https://download.docker.com/linux/ubuntu/gpg
@@ -46,7 +46,7 @@ install_docker_repo:
     - name: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ grains['oscodename'] }} stable
     - file: /etc/apt/sources.list.d/docker.list
     - requires:
-      - add_keyring_gpg_file
+      - add_docker_keyring_gpg_file
 
 install_docker:
   pkg.installed:
