@@ -2,7 +2,7 @@
 
 include:
   - tanzuce.docker
-  - tanzuce.kubectl
+  - tanzuce.kubectl-snap
   - tanzuce.user
 
 # create a directory to download the TCE release tar
