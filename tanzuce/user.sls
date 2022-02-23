@@ -11,7 +11,7 @@ create_tce_user:
 
 # prevent user login with password
 # https://kifarunix.com/disable-ssh-password-login-for-specific-users-in-ubuntu-18-04/#:~:text=If%20you%20need%20to%20disable,login%20using%20SSH%20public%20key
- prevent_user_login:
+prevent_user_login:
   file.append:
     - name: /etc/ssh/sshd_config
     - text:
