@@ -31,8 +31,6 @@ su_without_passwordline2:
     - mode: insert
     - after: auth       [success=ignore default=1] pam_succeed_if.so user = tce
     - content: auth       sufficient   pam_succeed_if.so use_uid user ingroup sudo
-    - requires:
-      - su_without_password_line1
 
 # reload ssh service
 # reload_ssh:
