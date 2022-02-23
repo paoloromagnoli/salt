@@ -18,12 +18,21 @@ create_tce_user:
 #      - "Match   User    tce"
 #      - "        PasswordAuthentication  no"
 
-su_without_password:
+su_without_password_line1:
   file.line:
     - name: /etc/pam.d/su
     - mode: insert
     - after: auth       sufficient pam_rootok.so
     - content: auth       [success=ignore default=1] pam_succeed_if.so user = tce
+
+su_without_passwordline2:
+  file.line:
+    - name: /etc/pam.d/su
+    - mode: insert
+    - after: auth       [success=ignore default=1] pam_succeed_if.so user = tce
+    - content: auth       sufficient   pam_succeed_if.so use_uid user ingroup sudo
+    - requires:
+      - su_without_password_line1
 
 # reload ssh service
 # reload_ssh:
