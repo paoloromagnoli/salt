@@ -23,9 +23,7 @@ su_without_password:
     - name: /etc/pam.d/su
     - mode: insert
     - after: auth       sufficient pam_rootok.so
-    - content:
-      - auth       [success=ignore default=1] pam_succeed_if.so user = tce
-      - auth       sufficient   pam_succeed_if.so use_uid user ingroup sudo
+    - content: auth       [success=ignore default=1] pam_succeed_if.so user = tce
 
 # reload ssh service
 # reload_ssh:
