@@ -45,9 +45,9 @@ install_docker_repo:
   pkgrepo.managed:
     - humanname: Docker Stable Repository
     - name: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ grains['oscodename'] }} stable
-    - file: /etc/apt/sources.list.d/docker.list
-    - keyid: 7EA0A9C3F273FCD8
-    - keyserver: keyserver.ubuntu.com
+#    - file: /etc/apt/sources.list.d/docker.list
+    - key_url: https://download.docker.com/linux/ubuntu/gpg
+    - gpgcheck: 1
     - require_in:
       - pkg: install_docker
 
