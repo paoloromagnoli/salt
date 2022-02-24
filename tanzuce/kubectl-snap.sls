@@ -2,5 +2,5 @@
 
 install_kubectl_with_snap:
   cmd.run:
-    - name: sudo snap install kubectl
+    - name: sudo snap install kubectl --classic
     - runas: tce
