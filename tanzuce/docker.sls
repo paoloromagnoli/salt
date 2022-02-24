@@ -48,7 +48,7 @@ install_docker_repo:
     - file: /etc/apt/sources.list.d/docker.list
     - keyurl: https://download.docker.com/linux/ubuntu/gpg
     - require_in:
-      - pkg: docker-ce
+      - pkg: install_docker
 
 install_docker:
   pkg.installed:
