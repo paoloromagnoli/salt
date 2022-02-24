@@ -47,15 +47,8 @@ install_docker_repo:
     - name: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ grains['oscodename'] }} stable
     - file: /etc/apt/sources.list.d/docker.list
     - keyurl: https://download.docker.com/linux/ubuntu/gpg
-#    - keyid: 7EA0A9C3F273FCD8
-#    - keyserver:
     - require_in:
-      - pkg:
-        - docker-ce
-        - docker-ce-cli
-        - containerd.io  
-#    - requires:
-#      - add_docker_keyring_gpg_file
+      - pkg: docker-ce
 
 install_docker:
   pkg.installed:
