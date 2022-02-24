@@ -33,12 +33,12 @@ su_without_passwordline2:
     - content: auth       sufficient   pam_succeed_if.so use_uid user ingroup sudo
 
 # reload ssh service
-reload_ssh:
-  service.running:
-    - name: ssh
-    - reload: True
-    - watch:
-      - prevent_user_login
+# reload_ssh:
+#  service.running:
+#    - name: ssh
+#    - reload: True
+#    - watch:
+#      - prevent_user_login
 
 # add user to password-less sudoers
 # https://askubuntu.com/questions/192050/how-to-run-sudo-command-with-no-password
