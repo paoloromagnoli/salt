@@ -1,9 +1,10 @@
 # install Tanzu Community Edition on Ubuntu 18.04 bionic
 
 include:
+  - tanzuce.user
   - tanzuce.docker
   - tanzuce.kubectl-snap
-  - tanzuce.user
+
 
 # create a directory to download the TCE release tar
 create_directory:
