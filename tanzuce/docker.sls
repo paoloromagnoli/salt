@@ -39,8 +39,8 @@ install_required_packages:
 #      - install_required_packages
 
 # set up the Docker repository
-# make arch parametric ?
 #echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+# this add the key in the /etc/apt/source.list file instead of creating a docker dedicated file /etc/apt/source.list.d/docker.list
 install_docker_repo:
   pkgrepo.managed:
     - humanname: Docker Stable Repository
