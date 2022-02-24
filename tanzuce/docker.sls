@@ -26,16 +26,17 @@ install_required_packages:
       - curl
       - gnupg
       - lsb-release
+    - refresh: True
 
 # download the gpg keyfile
-add_docker_keyring_gpg_file:
-  file.managed:
-    - name: /usr/share/keyrings/docker-archive-keyring.gpg
-    - source: https://download.docker.com/linux/ubuntu/gpg
-    - source_hash: 1500c1f56fa9e26b9b8f42452a553675796ade0807cdce11975eb98170b3a570
-    - mode: 644
-    - requires:
-      - install_required_packages
+#add_docker_keyring_gpg_file:
+#  file.managed:
+#    - name: /usr/share/keyrings/docker-archive-keyring.gpg
+#    - source: https://download.docker.com/linux/ubuntu/gpg
+#    - source_hash: 1500c1f56fa9e26b9b8f42452a553675796ade0807cdce11975eb98170b3a570
+#    - mode: 644
+#    - requires:
+#      - install_required_packages
 
 # set up the Docker repository
 # make arch parametric ?
@@ -43,10 +44,18 @@ add_docker_keyring_gpg_file:
 install_docker_repo:
   pkgrepo.managed:
     - humanname: Docker Stable Repository
-    - name: deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu {{ grains['oscodename'] }} stable
+    - name: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ grains['oscodename'] }} stable
     - file: /etc/apt/sources.list.d/docker.list
-    - requires:
-      - add_docker_keyring_gpg_file
+    - keyurl: https://download.docker.com/linux/ubuntu/gpg
+#    - keyid: 7EA0A9C3F273FCD8
+#    - keyserver:
+    - require_in:
+      - pkg:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io  
+#    - requires:
+#      - add_docker_keyring_gpg_file
 
 install_docker:
   pkg.installed:
@@ -54,5 +63,19 @@ install_docker:
       - docker-ce
       - docker-ce-cli
       - containerd.io
+    - refresh: True
     - requires:
       - install_docker_repo
+
+# configure docker to start on boot
+# https://docs.docker.com/engine/install/linux-postinstall/#configure-docker-to-start-on-boot
+
+enable_docker:
+  service.running:
+    - name: docker
+    - enable: true
+
+enable_containerd:
+  service.running:
+    - name: containerd
+    - enable: true
